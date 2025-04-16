@@ -4,7 +4,7 @@ import re
 
 def fetch_project_and_workflow(job_id):
     try:
-        result = subprocess.run(['td', 'job:show', str(job_id)], capture_output=True, text=True, check=True)
+        result = subprocess.run(['td', 'job:show', str(job_id)], capture_output=True, text=True, check=True, shell=True)
         output = result.stdout
 
         project_match = re.search(r'-- project_name:\s*(.+)', output)
